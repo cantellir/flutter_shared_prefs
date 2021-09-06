@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:shared_prefs/shared_prefs.dart';
+import 'package:shared_prefs/src/shared_prefs_impl.dart';
 
 void main() {
   late SharedPrefsImpl sut;
