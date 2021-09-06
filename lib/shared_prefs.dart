@@ -1,7 +1,4 @@
 library shared_prefs;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/shared_prefs.dart';
+export 'src/shared_prefs_impl.dart';
