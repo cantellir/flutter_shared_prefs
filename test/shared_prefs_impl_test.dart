@@ -37,7 +37,7 @@ void main() {
 
     var anotherFakeValue = 'anotherFakeValue';
 
-    sut.setString(fakeKey, anotherFakeValue);
+    await sut.setString(fakeKey, anotherFakeValue);
 
     var getValue = sut.getString(fakeKey);
 

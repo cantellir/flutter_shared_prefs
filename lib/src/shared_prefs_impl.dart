@@ -24,7 +24,7 @@ class SharedPrefsImpl implements SharedPrefs {
   }
 
   @override
-  void setString(String key, String value) {
-    _preferences!.setString(key, value);
+  Future<void> setString(String key, String value) {
+    return _preferences!.setString(key, value);
   }
 }
