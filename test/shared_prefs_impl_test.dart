@@ -16,14 +16,6 @@ void main() {
     });
   });
 
-  test('Should return a unique instance of SharedPrefs', () async {
-    await sut.init();
-
-    var anotherSharedPrefs = SharedPrefsImpl();
-
-    expect(identical(sut, anotherSharedPrefs), true);
-  });
-
   test('Should return correct fake value', () async {
     await sut.init();
 
@@ -42,5 +34,13 @@ void main() {
     var getValue = sut.getString(fakeKey);
 
     expect(getValue, anotherFakeValue);
+  });
+
+  test('should trhow assertation if init was not called on setString', () {
+    expect(() => sut.setString(fakeKey, fakeValue), throwsAssertionError);
+  });
+
+  test('should trhow assertation if init was not called on getString', () {
+    expect(() => sut.getString(fakeKey), throwsAssertionError);
   });
 }

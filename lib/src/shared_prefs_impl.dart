@@ -5,26 +5,26 @@ import 'package:shared_prefs/src/shared_prefs.dart';
 class SharedPrefsImpl implements SharedPrefs {
   SharedPreferences? _preferences;
 
-  static final SharedPrefsImpl _sharedPrefsImpl = SharedPrefsImpl._internal();
-
-  factory SharedPrefsImpl() {
-    return _sharedPrefsImpl;
-  }
+  SharedPrefsImpl();
 
   @override
   Future<void> init() async {
     _preferences = await SharedPreferences.getInstance();
   }
 
-  SharedPrefsImpl._internal();
-
   @override
   String? getString(String key) {
+    _verifyInitAssert();
     return _preferences!.getString(key);
   }
 
   @override
   Future<void> setString(String key, String value) {
+    _verifyInitAssert();
     return _preferences!.setString(key, value);
+  }
+
+  void _verifyInitAssert() {
+    assert(_preferences != null, 'init() was not called');
   }
 }
